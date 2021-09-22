@@ -17,7 +17,7 @@
  * @returns {string} John Smith
  */
 export const createFullName = (firstName, lastName) => {
-  /* Write your code here */
+  return `${firstName} ${lastName}`;
 };
 
 /**
@@ -28,8 +28,12 @@ export const createFullName = (firstName, lastName) => {
  * @param {number} number2 200
  * @returns {number} 100
  */
-export const findSmallestNumber = (/* Write the parameters here */) => {
-  /* Write your code here */
+export const findSmallestNumber = (number1, number2) => {
+  if (number1 < number2) {
+    return number1;
+  } else {
+    return number2;
+  }
 };
 
 /**
@@ -40,8 +44,9 @@ export const findSmallestNumber = (/* Write the parameters here */) => {
  * @param {number} number2 6
  * @returns {number} 18
  */
-export const multiplyNumbers = (/* Write the parameters here */) => {
-  /* Write your code here */
+export const multiplyNumbers = (number1, number2) => {
+  const product = number1 * number2;
+  return product;
 };
 
 /* Intermediate Challenges */
@@ -57,7 +62,13 @@ export const multiplyNumbers = (/* Write the parameters here */) => {
  * @returns {string} "You got a new high score!" | "So close!" | "Better luck next time!"
  */
 export const checkIfNewHighScore = (score, highScore) => {
-  /* Write your code here */
+  if (score > highScore) {
+    return "You got a new high score!";
+  } else if (score === highScore) {
+    return "So close!";
+  } else {
+    return "Better luck next time!";
+  }
 };
 
 /**
@@ -67,7 +78,8 @@ export const checkIfNewHighScore = (score, highScore) => {
  * @returns {string} "15 degrees celsius is 59 degrees fahrenheit"
  */
 export const celsiusToFahrenheit = (tempInCelsius) => {
-  /* Write your code here */
+  const fahrenheit = tempInCelsius * 1.8 + 32;
+  return `${tempInCelsius} degrees celsius is ${fahrenheit} degrees fahrenheit`;
 };
 
 /**
@@ -80,7 +92,7 @@ export const celsiusToFahrenheit = (tempInCelsius) => {
  * @returns {number} 47450
  */
 export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
-  /* Write your code here */
+  return snickersPerDay * 365 * (maxAge - age);
 };
 
 /* Advanced Challenges */
@@ -100,7 +112,25 @@ export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
  * @returns {string} A - F | Score unavailable
  */
 export const getGrade = (score) => {
-  /* Write your code here */
+  if (score < 0 || score > 100 || typeof score != "number") {
+    return "Score unavailable"; 
+    //this is an example of a nested if/else statement - 
+    //which first checks the validity before contiuing to run through the block of code
+  } else {
+    if (score > 79 && score <= 100) {
+      return "A";
+    } else if (score >= 70 && score <= 79) {
+      return "B";
+    } else if (score >= 60 && score <= 69) {
+      return "C";
+    } else if (score >= 50 && score <= 59) {
+      return "D";
+    } else if (score >= 40 && score <= 49) {
+      return "E";
+    } else {
+      return "F";
+    }
+  }
 };
 
 /**
@@ -110,7 +140,12 @@ export const getGrade = (score) => {
  * @returns {number} 28.27
  */
 export const calculateAreaOfCircle = (radius) => {
-  /* Write your code here */
+  const area = Math.PI * radius * radius;
+  const areaToTwoDecimalPlaces = area.toFixed(2);
+
+  return parseFloat(areaToTwoDecimalPlaces);
+  //const areaToTwoDecimalPlace = areaOfCircle.toPrecision(4);
+  //return parseInt(areaToTwoDecimalPlace);
 };
 
 /* Expert Challenge */
@@ -131,5 +166,26 @@ export const calculateAreaOfCircle = (radius) => {
  * @param {string} name John
  */
 export const getStudentSummary = (score, name) => {
-  /* Write your code here */
+  if (score < 0 || score > 100 || typeof score != "number") {
+    return (
+      "My apologies " + name + ", there's been an error in processing your grade.");
+       //this is another example of a nested if/else statement - 
+       //which first checks the validity before contiuing to run through the block of code
+  } else {
+    if (score > 79 && score <= 100) {
+      return "Congratulations " + name + "! You achieved a grade of A.";
+    } else if (score >= 70 && score <= 79) {
+      return "Well done " + name + "! You achieved a grade of B.";
+    } else if (score >= 60 && score <= 69) {
+      return "Nicely done " + name + "! You achieved a grade of C.";
+    } else if (score >= 50 && score <= 59) {
+      return "That's okay " + name + ". You achieved a grade of D.";
+    } else if (score >= 40 && score <= 49) {
+      return "Too bad " + name + ". You achieved a grade of E.";
+    } else {
+      return (
+        "Sorry " + name + ". You achieved a grade of F. There's always next year."
+      );
+    }
+  }
 };

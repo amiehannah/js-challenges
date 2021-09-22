@@ -22,7 +22,20 @@
  */
 
 export const createRecipeString = (ingredientsArr) => {
-  return;
+  // LOOP THROUGH - > ACCESS TO EACH ITEM - > JOIN WITH A +
+  // GOOGLE AND LOOK THIS UP
+//   let recipeString = "";
+//   for(let index = 0; index < ingredientsArr.length; index++) {
+//     // CHECK LAST ITEM - > NOT GOING TO ADD +
+//     if (index === ingredientsArr.length - 1) {
+//       recipeString += ingredientsArr[index];
+//     } else {
+//     recipeString += ingredientsArr[index] + "+";
+//   }
+// }
+//   return recipeString;
+
+return ingredientsArr.join("+");
 };
 
 /**
@@ -33,8 +46,19 @@ export const createRecipeString = (ingredientsArr) => {
  */
 
 export const getFirstAndLastItems = (itemsArr) => {
-  return;
+  // The shift() method removes the first array element and "shifts" all other elements to a lower index.
+  // The pop() method removes the last element from an array:
+  // The slice() method slices out a piece of an array into a new array.
+ // The push() method adds a new element to an array (at the end):
+
+  let getFirstItem = itemsArr.slice(0);
+  let getLastItem = itemsArr.pop();
+  let newArr = getFirstItem.concat();
+
+
+  return newArr;
 };
+
 
 /**
  * A function that takes an array of scores and totals the scores by looping through the array.
@@ -44,7 +68,12 @@ export const getFirstAndLastItems = (itemsArr) => {
  */
 
 export const totalScores = (scoreArr) => {
-  return;
+  // You can use the reduce() method to find or calculate the sum of an array of numbers.
+  let sum = 0;
+  for (let index = 0; index < scoreArr.length; index++) {
+   sum += scoreArr[index];
+  }
+  return sum;
 };
 
 /**
@@ -60,7 +89,10 @@ export const totalScores = (scoreArr) => {
  */
 
 export const totalRange = (rangeMax) => {
-  return;
+  //The map() method creates a new array populated with the results of calling a provided function on every element in the calling array
+  for(let index = 0; index < rangeMax; index--) {
+  }
+  return totalRange;
 };
 
 /**
@@ -71,7 +103,13 @@ export const totalRange = (rangeMax) => {
  */
 
 export const moveFirstAndLastItems = (itemsArr) => {
-  return;
+  //return a new array 
+  let arrCopy = itemsArr.slice(); 
+  // Remove an item from the end of an Array 
+  let last = arrCopy.pop(); 
+   // last item moved to the front of the array 
+  let newArr = arrCopy.unshift[last];
+  return newArr;
 };
 
 /**
